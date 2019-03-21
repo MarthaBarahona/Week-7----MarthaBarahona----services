@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserData } from './../search/interfaces/userData.interface';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-display-data',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-data.component.sass']
 })
 export class DisplayDataComponent implements OnInit {
+  @Input() userData: UserData;
 
   constructor() { }
 
