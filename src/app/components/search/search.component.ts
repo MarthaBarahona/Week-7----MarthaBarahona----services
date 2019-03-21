@@ -4,11 +4,12 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataService } from './../../services/data.service';
 import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.sass']
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
   form: FormGroup;
@@ -30,17 +31,26 @@ export class SearchComponent {
   getUserId() {
     this.service.getUserId(this.username.value)
       .subscribe(response => {
-        this.showed = true;
         this.user = response;
-        const resu = forkJoin(
+        if (this.user.items.length === 0) {
+          alert('Invalid');
+          this.username.setValue('');
+        } else {
+          this.showed = true;
+          console.log(response);
+          const resu = forkJoin(
           this.service.getUserData(this.user.items[0].login),
           this.service.getUserFollowers(this.user.items[0].followers_url),
           this.service.getUserRepos(this.user.items[0].login)
         ).subscribe((userDataResponse: User|any) => {
           this.showed = false;
           this.hasData = true;
+          this.username.setValue('');
           this.joinInfo(userDataResponse[0], userDataResponse[1], userDataResponse[2]);
           });
+        }
+        }, (error: Response) => {
+          alert('Invalid name');
         });
   }
 
