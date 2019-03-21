@@ -1,9 +1,31 @@
-<form [formGroup]="form">
-  <div class="form-group">
-    <label for="username">User Name: </label>
-    <input formControlName="username" id="username" type="text" class="form-control"/>
+<div class="wrapper">
+  <h1>GITHUB PROFILE</h1>
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label for="username">User Name: </label>
+      <input
+        formControlName="username"
+        id="username"
+        type="text"
+        class="form-control"
+      />
+      <button (click)="getUserId()">Search</button>
+    </div>    
+  </form>
+
+  <div *ngIf="showed" class=" loader lds-css ng-scope">
+    <div class="lds-blocks" style="width:100%;height:100%">
+      <div style="left:38px;top:38px;animation-delay:0s"></div>
+      <div style="left:80px;top:38px;animation-delay:0.125s"></div>
+      <div style="left:122px;top:38px;animation-delay:0.25s"></div>
+      <div style="left:38px;top:80px;animation-delay:0.875s"></div>
+      <div style="left:122px;top:80px;animation-delay:0.375s"></div>
+      <div style="left:38px;top:122px;animation-delay:0.75s"></div>
+      <div style="left:80px;top:122px;animation-delay:0.625s"></div>
+      <div style="left:122px;top:122px;animation-delay:0.5s"></div>
+    </div>
   </div>
-  <button (click)="getUserId()">Search</button>
-</form>
-<div *ngIf="showed">Getting Data...</div>
-<app-display-data *ngIf="hasData" [userData]="userData"></app-display-data>
+  <div class="display-data">
+    <app-display-data *ngIf="hasData" [userData]="userData"></app-display-data>
+  </div>
+</div>
