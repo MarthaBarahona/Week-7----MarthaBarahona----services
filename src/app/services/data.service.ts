@@ -16,10 +16,23 @@ export class DataService {
   }
 
   getUserData(login: string) {
-    return this.http.get(this.url + 'users/' + login, {headers: new HttpHeaders().set('Authorization','token 7780b41a1bbd1a474133226c842cebaaba84e84d')});
+    return this.http.get(this.url + 'users/' + login,
+    {headers: new HttpHeaders().
+      set('Authorization',
+          'token 7780b41a1bbd1a474133226c842cebaaba84e84d')});
   }
 
   getUserRepos(login: string) {
-    return this.http.get(this.url + 'search/repositories?q=user:' + login, {headers: new HttpHeaders().set('Authorization','token 7780b41a1bbd1a474133226c842cebaaba84e84d')});
+    return this.http.get(this.url + 'search/repositories?q=user:' + login,
+    {headers: new HttpHeaders()
+      .set('Authorization',
+            'token 7780b41a1bbd1a474133226c842cebaaba84e84d')});
+  }
+
+  getUserFollowers(url: string) {
+    return this.http.get(url,
+      {headers: new HttpHeaders().
+        set('Authorization',
+            'token 7780b41a1bbd1a474133226c842cebaaba84e84d')});
   }
 }
