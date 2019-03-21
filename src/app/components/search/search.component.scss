@@ -1,0 +1,95 @@
+//CSS GRID
+h1 {
+  grid-area: title;
+}
+
+form {
+  grid-area: form;
+}
+
+.loader {
+  grid-area: loader;
+}
+
+.display-data {
+  grid-area: userData;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-row-gap: 2.5%;
+  grid-template-areas:
+    ". title ."
+    ". form ."
+    ". loader ."
+    ". userData ."
+}
+
+//CSS STYLE
+h1 {
+  justify-self: center;
+}
+
+form {
+  justify-self: center;
+}
+
+button {
+  margin-left: 15px;
+}
+
+.loader {
+  justify-self: center;
+}
+
+.display-data {
+  justify-self: center;
+}
+
+//CSS FOR LOADER
+@keyframes lds-blocks {
+  0% {
+    background: #3be8b0;
+  }
+  12.5% {
+    background: #3be8b0;
+  }
+  12.625% {
+    background: #fc636b;
+  }
+  100% {
+    background: #fc636b;
+  }
+}
+@-webkit-keyframes lds-blocks {
+  0% {
+    background: #3be8b0;
+  }
+  12.5% {
+    background: #3be8b0;
+  }
+  12.625% {
+    background: #fc636b;
+  }
+  100% {
+    background: #fc636b;
+  }
+}
+.lds-blocks {
+  position: relative;
+}
+.lds-blocks div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fc636b;
+  -webkit-animation: lds-blocks 1s linear infinite;
+  animation: lds-blocks 1s linear infinite;
+}
+.lds-blocks {
+  width: 115px !important;
+  height: 115px !important;
+  -webkit-transform: translate(-57.5px, -57.5px) scale(0.575) translate(57.5px, 57.5px);
+  transform: translate(-57.5px, -57.5px) scale(0.575) translate(57.5px, 57.5px);
+}
