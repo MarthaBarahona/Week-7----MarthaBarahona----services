@@ -7,4 +7,8 @@ export interface UserData {
     location: string;
     created_at: string;
     html_url: string;
+    repositories: [{}];
+    followers_url: string;
+    number_repositories: number;
+    followers: [{}];
 }
