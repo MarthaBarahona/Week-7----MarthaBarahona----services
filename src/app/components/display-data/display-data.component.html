@@ -1,3 +1,13 @@
-<p>
-  display-data works!
-</p>
+<div class="wrapper">
+    <p>Name: {{userData.name}}</p>
+    <img [src]="userData.avatar_url">
+    <p>Company: {{userData.company}}</p>
+    <a [href]="userData.blog">Website</a>
+    <p>Location: {{userData.location}}</p>
+    <p>Member since: {{userData.created_at}}</p>
+    <a [href]="userData.html_url">Profiles</a>
+    <p>Number Followings: {{userData.following}}</p>
+    <p>Nummber Repositories: {{userData.number_repositories}}</p>
+
+
+</div>
