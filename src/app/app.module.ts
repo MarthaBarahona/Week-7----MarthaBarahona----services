@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { DisplayDataComponent } from './components/display-data/display-data.component';
 import { UserReposComponent } from './components/user-repos/user-repos.component';
+import { UserFollowersComponent } from './components/user-followers/user-followers.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserReposComponent } from './components/user-repos/user-repos.component
     AppComponent,
     SearchComponent,
     DisplayDataComponent,
-    UserReposComponent
+    UserReposComponent,
+    UserFollowersComponent
   ],
   imports: [
     BrowserModule,
