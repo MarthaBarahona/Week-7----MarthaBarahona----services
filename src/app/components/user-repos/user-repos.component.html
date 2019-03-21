@@ -1,3 +1,6 @@
-<p>
-  user-repos works!
-</p>
+<div class="container">
+  <h3>LIST OF REPOSITORIES:</h3>
+  <ul>
+    <li *ngFor="let repository of userRepos">{{repository.name}}</li>
+  </ul>
+</div>

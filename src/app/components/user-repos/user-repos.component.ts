@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-repos',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-repos.component.sass']
 })
 export class UserReposComponent implements OnInit {
+  @Input() userRepos: [{}];
 
   constructor() { }
 
