@@ -8,6 +8,5 @@
     <a [href]="userData.html_url">Profiles</a>
     <p>Number Followings: {{userData.following}}</p>
     <p>Nummber Repositories: {{userData.number_repositories}}</p>
-
-
+    <app-user-repos [userRepos]="userData.repositories"></app-user-repos>
 </div>
