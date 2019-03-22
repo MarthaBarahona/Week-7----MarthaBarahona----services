@@ -1,10 +1,10 @@
 import { UserData } from './interfaces/userData.interface';
 import { User } from './interfaces/user.interface';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from './../../services/data.service';
 import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
-import { userInfo } from 'os';
+
 
 @Component({
   selector: 'app-search',
@@ -20,7 +20,7 @@ export class SearchComponent {
 
   constructor(private service: DataService, private fb: FormBuilder) {
     this.form = fb.group({
-      username: []
+      username: ['', Validators.required]
     });
   }
 
@@ -37,7 +37,6 @@ export class SearchComponent {
           this.username.setValue('');
         } else {
           this.showed = true;
-          console.log(response);
           const resu = forkJoin(
           this.service.getUserData(this.user.items[0].login),
           this.service.getUserFollowers(this.user.items[0].followers_url),
@@ -66,10 +65,7 @@ export class SearchComponent {
       html_url: data.html_url,
       repositories: repositories.items,
       number_repositories: repositories.total_count,
-      followers: followersList
+      followers: followersList,
     };
-    console.log(this.userData);
-    console.log(followersList);
-    console.log(repositories.items);
   }
 }
