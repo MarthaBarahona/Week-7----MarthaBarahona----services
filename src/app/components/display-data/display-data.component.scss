@@ -1,0 +1,106 @@
+//CSS GRID
+h2 {
+  grid-area: name;
+}
+
+img {
+  grid-area: image;
+}
+
+.data {
+  grid-area: data;
+}
+
+.results {
+  grid-area: results;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: 
+  "image name ."
+  ". data ."
+  ". results ."
+}
+
+@media only screen and (max-width: 456px) {
+   .wrapper {
+    img {
+      justify-self: center;
+    }
+     grid-template-areas: 
+     ". image ."
+     ". name ."
+     ". data ."
+     ". results ."
+   }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    img {
+      justify-self: center;
+    }
+    display: grid;
+    grid-template-areas: 
+    ". image ." 
+    ". name ."
+    ". data ."
+    ". results ."
+  }
+  .button {
+    a {
+      display: block;
+      margin-bottom: 10px;
+      width: 150px;
+      text-align: center;
+    }
+  }
+}
+
+//CSS STYLE
+h2 {
+  text-align: center;
+}
+
+img {
+  justify-self: end;
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: #612570;
+  color: #fff;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #ea168e;
+  }
+}
+
+.container {
+  padding: 20px;
+  background-color: #1eafed;
+  border-radius: 20px;
+}
+
+.data {
+  p {
+    text-align: center;
+  }
+
+  .button {
+    margin-top: 30px;
+    margin-left: 25%;
+  }
+
+  a {
+    margin-left: 5px;
+  }
+}
+

@@ -1,6 +1,25 @@
 <div class="container">
-  <h3>LIST OF REPOSITORIES:</h3>
-  <ul>
-    <li *ngFor="let repository of userRepos">{{repository.name}}</li>
-  </ul>
+  <h3>LIST OF REPOSITORIES</h3>
+  <div class="table"> 
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number Stars</th>
+          <th>Number Forks</th>
+          <th>Number Watchers</th>
+          <th>Repository URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let repo of userRepos">
+          <td>{{ repo.name }}</td>
+          <td>{{ repo.stargazers_count }}</td>
+          <td>{{ repo.forks_count }}</td>
+          <td>{{ repo.watchers_count }}</td>
+          <td class="url"><a [href]="repo.html_url">Check Repository</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

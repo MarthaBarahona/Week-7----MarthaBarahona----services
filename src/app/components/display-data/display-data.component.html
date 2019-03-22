@@ -1,12 +1,28 @@
-<div class="wrapper">
-    <p>Name: {{userData.name}}</p>
-    <img [src]="userData.avatar_url">
-    <p>Company: {{userData.company}}</p>
-    <a [href]="userData.blog">Website</a>
-    <p>Location: {{userData.location}}</p>
-    <p>Member since: {{userData.created_at}}</p>
-    <a [href]="userData.html_url">Profiles</a>
-    <p>Number Followings: {{userData.following}}</p>
-    <p>Nummber Repositories: {{userData.number_repositories}}</p>
-    <app-user-repos [userRepos]="userData.repositories"></app-user-repos>
+<div class="container">
+  <div class="wrapper">
+    <img [src]="userData.avatar_url" />
+    <h2>Name: {{ userData.name }}</h2>
+  </div>
+
+  <div class="data">
+    <p *ngIf="userData.company !== null">Company: {{ userData.company }}</p>
+    <p *ngIf="userData.location !== null">Location: {{ userData.location }}</p>
+    <p>Member since: {{ userData.created_at }}</p>
+    <p>Number Followings: {{ userData.following }}</p>
+    <p>Nummber Repositories: {{ userData.number_repositories }}</p>
+    <div class="button">
+      <a *ngIf="userData.blog !== ''" [href]="userData.blog"
+        >Visit Personal Website</a
+      >
+      <a [href]="userData.html_url">Visit Github Profile</a>
+    </div>
+  </div>
+</div>
+
+<div class="results">
+  <app-user-repos [userRepos]="userData.repositories"></app-user-repos>
+  <app-user-followers
+    *ngIf="!(userData.followers.length === 0)"
+    [userFollowers]="userData.followers"
+  ></app-user-followers>
 </div>

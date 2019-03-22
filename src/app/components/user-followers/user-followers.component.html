@@ -1,3 +1,19 @@
-<p>
-  user-followers works!
-</p>
+<div class="container">
+  <h3>USER FOLLOWERS</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Avatar</th>
+        <th>Profile</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let follower of userFollowers">
+        <td>{{follower.login}}</td>
+        <td><img [src]="follower.avatar_url"></td>
+        <td class="url"><a [href]="follower.html_url">{{follower.login}} Profile</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
